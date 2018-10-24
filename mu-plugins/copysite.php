@@ -2,13 +2,18 @@
 
 function copysite_admin_notices() {
 	global $wpdb;
+
+	// Admins Only
+	if( ! current_user_can( 'administrator' ) ) { return; }
+
+	// Tools Page Only
 	$current_screen = get_current_screen();
 	if( $current_screen->id != 'tools' )  { return; }
 	?>
 	<div class="notice notice-info is-dismissible">
 
 		<?php
-		if( ! empty( $_REQUEST['copysite'] ) ) {
+		if( ! empty( $_REQUEST['copysite'] ) && check_admin_referer( 'copysite' ) ) {
 			$copysite = preg_replace( '/[^a-z0-9]/', '', $_REQUEST['copysite'] );
 			$command = sprintf( "sudo /root/copysite.sh %s %s", $wpdb->dbname, $copysite );
 			?>
@@ -17,6 +22,7 @@ function copysite_admin_notices() {
 		<?php } ?>
 
 		<form method="GET" action="">
+		<?php wp_nonce_field( 'copysite' ); ?>
 			<fieldset>
 				<legend>Copy this site to a new site</legend>
 				<p>
