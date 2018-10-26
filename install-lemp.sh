@@ -18,7 +18,6 @@ sudo mysql_secure_installation;
 # Install PHP
 sudo apt install php7.2-fpm php7.2-mbstring php7.2-xml php7.2-mysql php7.2-common php7.2-gd php7.2-json php7.2-cli php7.2-curl php7.2-soap -y;
 sudo systemctl start php7.2-fpm;
-sudo systemctl start php7.2-fpm;
 sudo systemctl enable php7.2-fpm;
 
 # Install Redis If Server Has 4GB RAM
