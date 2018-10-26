@@ -36,4 +36,10 @@ sudo systemctl enable redis-server;
 sudo add-apt-repository ppa:certbot/certbot;
 sudo apt update;
 sudo apt install certbot;
-sudo certbot certonly --manual -d *.[MYDOMAIN.COM] --agree-tos --no-bootstrap --manual-public-ip-logging-ok --preferred-challenges dns-01 --server https://acme-v02.api.letsencrypt.org/directory;
+#sudo certbot certonly --manual -d *.[MYDOMAIN.COM] --agree-tos --no-bootstrap --manual-public-ip-logging-ok --preferred-challenges dns-01 --server https://acme-v02.api.letsencrypt.org/directory;
+
+# Install Let's Encrypt Automated Renewal
+wget https://dl.eff.org/certbot-auto;
+chmod a+x certbot-auto;
+sudo mv certbot-auto /etc/letsencrypt/;
+
