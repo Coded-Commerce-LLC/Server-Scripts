@@ -20,5 +20,7 @@ for f in /var/www/html/*;
 		&& echo "Updating $f" \
 		&& wp --allow-root plugin update --all \
 		&& wp --allow-root theme update --all \
-		&& wp --allow-root core update
+		&& wp --allow-root core update \
+                && wp --allow-root transient delete --all \
+                && wp --allow-root cache flush
 done;
