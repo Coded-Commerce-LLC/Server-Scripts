@@ -12,14 +12,16 @@ sudo systemctl enable nginx;
 # Install Database
 sudo apt install mariadb-server mariadb-client -y;
 sudo systemctl start mysql;
-sudo systemctl enable mysql;
+#sudo systemctl enable mysql;
 sudo mysql_secure_installation;
 mysql -u root mysql -e "update user set plugin='mysql_native_password' where user='root';"
 
 # Install PHP
-sudo apt install php7.2-fpm php7.2-mbstring php7.2-xml php7.2-mysql php7.2-common php7.2-gd php7.2-json php7.2-cli php7.2-curl php7.2-soap -y;
-sudo systemctl start php7.2-fpm;
-sudo systemctl enable php7.2-fpm;
+sudo add-apt-repository ppa:ondrej/php;
+sudo apt update;
+sudo apt install php7.3-fpm php7.3-mbstring php7.3-xml php7.3-mysql php7.3-common php7.3-gd php7.3-json php7.3-cli php7.3-curl php7.3-soap -y;
+sudo systemctl start php7.3-fpm;
+sudo systemctl enable php7.3-fpm;
 
 # Install Redis If Server Has 4GB RAM
 sudo apt install redis-server php-redis;
@@ -30,7 +32,7 @@ sudo systemctl enable redis-server;
 #sudo apt-get install sendmail;
 #sudo sendmailconfig;
 #sudo nano /etc/hosts; # 127.0.0.1 localhost localhost.localdomain your_domain_name_here.com
-#sudo service php7.2-fpm restart;
+#sudo service php7.3-fpm restart;
 
 # Install Let's Encrypt
 sudo add-apt-repository ppa:certbot/certbot;
