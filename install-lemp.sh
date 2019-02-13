@@ -45,3 +45,13 @@ wget https://dl.eff.org/certbot-auto;
 chmod a+x certbot-auto;
 sudo mv certbot-auto /etc/letsencrypt/;
 
+# Install Firewall
+sudo apt-get install ufw;
+sudo ufw disable;
+sudo ufw default allow outgoing;
+sudo ufw default deny incoming;
+sudo ufw allow ssh;
+sudo ufw allow http;
+sudo ufw allow https;
+sudo ufw enable;
+sudo ufw status verbose;
