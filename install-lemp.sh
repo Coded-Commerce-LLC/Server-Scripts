@@ -24,9 +24,9 @@ sudo systemctl start php7.3-fpm;
 sudo systemctl enable php7.3-fpm;
 
 # Install Redis If Server Has 4GB RAM
-sudo apt install redis-server php-redis;
-sudo systemctl start redis-server;
-sudo systemctl enable redis-server;
+#sudo apt install redis-server php-redis;
+#sudo systemctl start redis-server;
+#sudo systemctl enable redis-server;
 
 # Install Sendmail
 #sudo apt-get install sendmail;
@@ -35,15 +35,15 @@ sudo systemctl enable redis-server;
 #sudo service php7.3-fpm restart;
 
 # Install Let's Encrypt
-sudo add-apt-repository ppa:certbot/certbot;
-sudo apt update;
-sudo apt install certbot;
+#sudo add-apt-repository ppa:certbot/certbot;
+#sudo apt update;
+#sudo apt install certbot;
 #sudo certbot certonly --manual -d *.[MYDOMAIN.COM] --agree-tos --no-bootstrap --manual-public-ip-logging-ok --preferred-challenges dns-01 --server https://acme-v02.api.letsencrypt.org/directory;
 
 # Install Let's Encrypt Automated Renewal
-wget https://dl.eff.org/certbot-auto;
-chmod a+x certbot-auto;
-sudo mv certbot-auto /etc/letsencrypt/;
+#wget https://dl.eff.org/certbot-auto;
+#chmod a+x certbot-auto;
+#sudo mv certbot-auto /etc/letsencrypt/;
 
 # Install Firewall
 sudo apt-get install ufw;
