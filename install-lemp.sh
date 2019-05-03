@@ -17,8 +17,10 @@ sudo mysql_secure_installation;
 mysql -u root mysql -e "update user set plugin='mysql_native_password' where user='root';"
 
 # Install PHP
+sudo apt install software-properties-common
 sudo add-apt-repository ppa:ondrej/php;
 sudo apt update;
+sudo apt upgrade -y;
 sudo apt install php7.3-fpm php7.3-mbstring php7.3-xml php7.3-mysql php7.3-common php7.3-gd php7.3-json php7.3-cli php7.3-curl php7.3-soap -y;
 sudo systemctl start php7.3-fpm;
 sudo systemctl enable php7.3-fpm;
